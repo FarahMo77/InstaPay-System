@@ -1,0 +1,69 @@
+--creating tables 
+CREATE TABLE User (
+    user_id INT PRIMARY KEY ,
+    username VARCHAR(200) UNIQUE,
+    password VARCHAR(200),
+    mobile_number VARCHAR(20),
+    is_bank_user BOOLEAN,
+    bank_account_number VARCHAR(200),
+    wallet_provider_id INT,
+    FOREIGN KEY (wallet_provider_id) REFERENCES WalletProvider(provider_id)
+);
+
+CREATE TABLE Bank (
+    bank_id INT PRIMARY KEY ,
+    bank_name VARCHAR(200)
+);
+
+CREATE TABLE WalletProvider (
+    provider_id INT PRIMARY KEY ,
+    provider_name VARCHAR(200)
+);
+
+CREATE TABLE BankAccount (
+    account_id INT PRIMARY KEY ,
+    user_id INT,
+    bank_id INT,
+    account_number VARCHAR(200),
+    FOREIGN KEY (user_id) REFERENCES User(user_id),
+    FOREIGN KEY (bank_id) REFERENCES Bank(bank_id)
+);
+
+CREATE TABLE Wallet (
+    wallet_id INT PRIMARY KEY ,
+    user_id INT,
+    provider_id INT,
+    wallet_number VARCHAR(200),
+    FOREIGN KEY (user_id) REFERENCES User(user_id),
+    FOREIGN KEY (provider_id) REFERENCES WalletProvider(provider_id)
+);
+
+CREATE TABLE BillType (
+    type_id INT PRIMARY KEY ,
+    type_name VARCHAR(200)
+);
+
+CREATE TABLE Bill (
+    bill_id INT PRIMARY KEY ,
+    user_id INT,
+    type_id INT,
+    amount DECIMAL(10, 2),
+    due_date DATE,
+    is_paid BOOLEAN,
+    FOREIGN KEY (user_id) REFERENCES User(user_id),
+    FOREIGN KEY (type_id) REFERENCES BillType(type_id)
+);
+
+
+--if we want to insert data or values , for example "in order" moomken tb2a msh in order bs in another way which is 
+-- INSERT INTO User (user_id) values ('5468446524'):
+
+INSERT INTO User VALUES (1, 'Borio', 'IloveMickey' , '010101010' , TRUE , '123' , '20324651'  );  --keda da user 1 msln
+INSERT INTO User  VALUES (2, 'Ozo', 'IloveTom' , '020202020' , FALSE , '145' , '65462165'  ); --wda user 2 
+--if we want to search for values in our db 
+SELECT * FROM user WHERE is_bank_user = 0;  --hena ytl3le kol b2a ldata bt3t luser el m3ndhash bank user
+SELECT * FROM user WHERE is_bank_user = 0;  --hena el 3aks
+
+--lw msln ayzen y2ole eh pass borio 
+SELECT password FROM User WHERE username = 'Borio'
+
