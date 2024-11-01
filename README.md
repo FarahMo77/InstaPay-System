@@ -1,5 +1,5 @@
-**Instapay System - Backend Demo** <br> :raised_hands:
-_Project Overview_ <br>  :eyes:
+**Instapay System - Backend Demo** :raised_hands: <br> 
+_Project Overview_ :eyes: <br>  
 This project aims to build a demo backend system inspired by the Instapay system, providing core features of a digital payment platform. This platform will allow users to register and make various types of financial transactions, such as transferring money to other accounts, transferring to bank accounts, paying bills, and transferring to mobile wallets. <br>
 
 The backend is developed in Java using Spring Boot, designed as a RESTful API to manage user accounts, payments, and bill processing. <br>
@@ -50,7 +50,7 @@ Pay Bills: Pay utility bills for Gas, Electricity, and Water.<br>
 **Transaction Restrictions:**<br>
 Only users registered with their bank accounts can transfer funds to other bank accounts.<br>
 
-**Tech Stack** <br> :pushpin:
+**Tech Stack** :pushpin: <br> 
 
 **Java 11/17:** Core language for backend development.<br>
 
