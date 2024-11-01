@@ -62,4 +62,4 @@ Only users registered with their bank accounts can transfer funds to other bank 
 
 **H2 Database:** In-memory database for testing and demo purposes.<br>
 
-JUnit and Mockito: Frameworks for unit and integration testing.<br>
+**JUnit and Mockito:** Frameworks for unit and integration testing.
